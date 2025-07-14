@@ -6,7 +6,7 @@ import AdminPanel from './components/AdminPanel';
 import UserSystem from './components/UserSystem';
 
 // Configuração Supabase unificada
-const supabaseUrl = 'https://bhhynlkstyraemgkjhoe.supabase.co';
+const supabaseUrl = 'https://bhhynlkstyraemgkj\hoe.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJoaHlubGtzdHlyYWVtZ2tqaG9lIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTIzMTA5NTAsImV4cCI6MjA2Nzg4Njk1MH0.FnPMp882tTyKwka73jzsgfMfh0nGO4K5pyL34TJtUUQ';
 
 function App() {
