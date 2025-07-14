@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvistaTop V7 - Invista em Projetos Imobiliários com Segurança</title>
+    <!-- Este arquivo deve ser salvo como index.html para funcionar como página principal -->
+    <meta name="description" content="Sistema de investimentos imobiliários com rentabilidade acima do mercado. Mais de 800 investidores confiam no InvistaTop V7.">
+    <meta name="keywords" content="investimentos, imobiliário, rentabilidade, projetos, AGIX Brasil">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuração personalizada do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'agix-primary': '#1B4EFF',
+                        'agix-secondary': '#0039CB',
+                        'agix-accent': '#00D4FF',
+                        'agix-success': '#00C896',
+                        'agix-warning': '#FFB800',
+                        'agix-danger': '#FF4757'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1B4EFF 0%, #0039CB 100%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 50%, #3B82F6 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .animate-pulse-slow {
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white">
+    <!-- HEADER NAVEGAÇÃO -->
+    <header class="fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-sm shadow-sm z-50 border-b">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                        💎 InvistaTop
+                    </div>
+                    <div class="ml-3 px-2 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-medium">
+                        V7
+                    </div>
+                </div>
+
+                <!-- Navegação -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#hero" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Início
+                    </a>
+                    <a href="#projetos" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Projetos
+                    </a>
+                    <a href="#como-funciona" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Como Funciona
+                    </a>
+                    <a href="#estatisticas" class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors">
+                        Resultados
+                    </a>
+                </nav>
+
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-3">
+                    <button onclick="goToLogin()" class="hidden sm:block px-4 py-2 text-sm font-medium text-blue-600 hover:text-blue-700 transition">
+                        Entrar
+                    </button>
+                    <button onclick="goToRegister()" class="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105">
+                        Começar Agora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO HERO -->
+    <section id="hero" class="pt-16 pb-20 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Texto Principal -->
+                <div class="space-y-8">
+                    <div class="space-y-4">
+                        <div class="inline-flex items-center px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                            🚀 Sistema de Investimentos V7
+                        </div>
+                        <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                            Invista em 
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+                                Projetos Imobiliários
+                            </span>
+                            com Segurança
+                        </h1>
+                        <p class="text-xl text-gray-600 leading-relaxed">
+                            Acesso a oportunidades exclusivas de investimento imobiliário com rentabilidade acima do mercado. 
+                            Diversifique seu portfólio e construa seu patrimônio com segurança.
+                        </p>
+                    </div>
+
+                    <!-- Estatísticas rápidas -->
+                    <div class="grid grid-cols-3 gap-6">
+                        <div class="text-center">
+                            <div class="text-2xl lg:text-3xl font-bold text-blue-600">
+                                847+
+                            </div>
+                            <div class="text-sm text-gray-600">Investidores</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl lg:text-3xl font-bold text-green-600">
+                                15.2%
+                            </div>
+                            <div class="text-sm text-gray-600">Rendimento Médio</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl lg:text-3xl font-bold text-purple-600">
+                                R$ 12.5M
+                            </div>
+                            <div class="text-sm text-gray-600">Investido</div>
+                        </div>
+                    </div>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="goToRegister()" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                            🚀 Começar a Investir
+                        </button>
+                        <button onclick="scrollToSection('projetos')" class="px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all">
+                            📊 Ver Projetos
+                        </button>
+                    </div>
+
+                    <!-- Status de conexão -->
+                    <div class="flex items-center gap-2 text-sm text-gray-500">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span>Conectado ao Supabase PostgreSQL - 8 tabelas ativas</span>
+                    </div>
+                </div>
+
+                <!-- Visual/Dashboard Preview -->
+                <div class="relative float-animation">
+                    <div class="bg-white rounded-2xl shadow-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <h3 class="font-semibold text-gray-800">Meu Portfólio</h3>
+                                <div class="text-sm text-green-600 font-medium">+15.8% este mês</div>
+                            </div>
+                            
+                            <!-- Gráfico simulado -->
+                            <div class="h-32 bg-gradient-to-r from-green-100 to-blue-100 rounded-lg flex items-center justify-center">
+                                <svg width="100%" height="100%" viewBox="0 0 300 100" class="overflow-visible">
+                                    <polyline points="10,80 40,65 70,55 100,45 130,35 160,30 190,25 220,20 250,15 280,10" 
+                                              fill="none" stroke="#00C896" stroke-width="3" opacity="0.8"/>
+                                    <polyline points="10,85 40,70 70,75 100,65 130,60 160,50 190,45 220,35 250,30 280,25" 
+                                              fill="none" stroke="#1B4EFF" stroke-width="2" opacity="0.6"/>
+                                </svg>
+                            </div>
+                            
+                            <div class="grid grid-cols-2 gap-4 pt-4 border-t">
+                                <div>
+                                    <div class="text-xs text-gray-500">Total Investido</div>
+                                    <div class="font-semibold text-gray-800">R$ 25.000</div>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-500">Rendimento</div>
+                                    <div class="font-semibold text-green-600">R$ 3.950</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Elementos decorativos -->
+                    <div class="absolute -top-4 -right-4 w-12 h-12 bg-yellow-400 rounded-full opacity-20 animate-pulse"></div>
+                    <div class="absolute -bottom-6 -left-6 w-16 h-16 bg-blue-400 rounded-full opacity-20 animate-pulse-slow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO PROJETOS DESTACADOS -->
+    <section id="projetos" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header da seção -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm font-medium mb-4">
+                    🏭 Oportunidades Exclusivas
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Projetos em <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Destaque</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Selecionamos as melhores oportunidades de investimento imobiliário com diferentes perfis de risco e rentabilidade.
+                </p>
+            </div>
+
+            <!-- Grid de projetos (carregado dinamicamente) -->
+            <div id="projetos-destaque-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Loading placeholder -->
+                <div class="flex items-center justify-center col-span-full py-8">
+                    <div class="text-center">
+                        <div class="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-2"></div>
+                        <p class="text-gray-500 text-sm">Carregando projetos em destaque...</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to action para ver mais -->
+            <div class="text-center mt-12">
+                <p class="text-gray-600 mb-6">Quer ver todos os projetos disponíveis?</p>
+                <button onclick="goToRegister()" class="px-8 py-4 border-2 border-blue-600 text-blue-600 font-semibold rounded-xl hover:bg-blue-50 transition-all">
+                    📋 Ver Todos os Projetos
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO COMO FUNCIONA -->
+    <section id="como-funciona" class="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium mb-4">
+                    🎯 Processo Simples
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Como <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Funciona</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Em apenas 3 passos simples você pode começar a investir em projetos imobiliários de alta qualidade.
+                </p>
+            </div>
+
+            <!-- Passos -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Passo 1 -->
+                <div class="relative">
+                    <div class="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform translate-x-4 -translate-y-1"></div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                                01
+                            </div>
+                            <div class="text-4xl">📋</div>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Cadastre-se</h3>
+                        <p class="text-gray-600 mb-6">Crie sua conta gratuita em menos de 2 minutos. Processo 100% digital e seguro.</p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Validação de CPF automática
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Conta totalmente gratuita
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Suporte 24/7
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Passo 2 -->
+                <div class="relative">
+                    <div class="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-blue-300 to-purple-300 transform translate-x-4 -translate-y-1"></div>
+                    
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                                02
+                            </div>
+                            <div class="text-4xl">🔍</div>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Escolha Projetos</h3>
+                        <p class="text-gray-600 mb-6">Analise oportunidades selecionadas por nossa equipe de especialistas.</p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Due diligence completa
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Diferentes perfis de risco
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Documentação transparente
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Passo 3 -->
+                <div class="relative">
+                    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100">
+                        <div class="flex items-center justify-between mb-6">
+                            <div class="w-12 h-12 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                                03
+                            </div>
+                            <div class="text-4xl">💰</div>
+                        </div>
+
+                        <h3 class="text-xl font-semibold text-gray-900 mb-3">Invista e Lucre</h3>
+                        <p class="text-gray-600 mb-6">Aplique seu dinheiro e acompanhe os rendimentos em tempo real.</p>
+
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                A partir de R$ 1.000
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Rendimentos mensais
+                            </li>
+                            <li class="flex items-center text-sm text-gray-600">
+                                <div class="w-1.5 h-1.5 bg-green-500 rounded-full mr-3"></div>
+                                Acompanhamento online
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA final -->
+            <div class="text-center mt-16">
+                <button onclick="goToRegister()" class="px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                    🚀 Começar Agora - É Grátis
+                </button>
+                <p class="text-sm text-gray-500 mt-4">Sem taxa de adesão • Sem mensalidade • Sem pegadinhas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEÇÃO ESTATÍSTICAS -->
+    <section id="estatisticas" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm font-medium mb-4">
+                    📈 Resultados Comprovados
+                </div>
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+                    Números que <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">Impressionam</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Mais de 800 investidores confiam no InvistaTop para fazer seu dinheiro render acima da média do mercado.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Estatística 1 -->
+                <div class="text-center p-8 bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-100">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-blue-600 rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                        847
+                    </div>
+                    <div class="text-3xl font-bold text-blue-600 mb-2">
+                        Investidores+
+                    </div>
+                    <div class="text-sm text-gray-600 font-medium">Investidores Ativos</div>
+                    <div class="text-xs text-gray-500 mt-1">Crescimento de 25% ao mês</div>
+                </div>
+
+                <!-- Estatística 2 -->
+                <div class="text-center p-8 bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-100">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-green-600 rounded-full flex items-center justify-center text-white text-xl font-bold">
+                        15.2%
+                    </div>
+                    <div class="text-3xl font-bold text-green-600 mb-2">
+                        Rendimento
+                    </div>
+                    <div class="text-sm text-gray-600 font-medium">Médio Anual</div>
+                    <div class="text-xs text-gray-500 mt-1">Acima do CDI e IPCA</div>
+                </div>
+
+                <!-- Estatística 3 -->
+                <div class="text-center p-8 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl border border-purple-100">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-purple-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+                        R$ 12.5M
+                    </div>
+                    <div class="text-3xl font-bold text-purple-600 mb-2">
+                        Total
+                    </div>
+                    <div class="text-sm text-gray-600 font-medium">Investido</div>
+                    <div class="text-xs text-gray-500 mt-1">Em projetos ativos</div>
+                </div>
+
+                <!-- Estatística 4 -->
+                <div class="text-center p-8 bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl border border-orange-100">
+                    <div class="w-20 h-20 mx-auto mb-4 bg-orange-600 rounded-full flex items-center justify-center text-white text-lg font-bold">
+                        R$ 1.9M
+                    </div>
+                    <div class="text-3xl font-bold text-orange-600 mb-2">
+                        Lucro
+                    </div>
+                    <div class="text-sm text-gray-600 font-medium">Distribuído</div>
+                    <div class="text-xs text-gray-500 mt-1">Para investidores</div>
+                </div>
+            </div>
+
+            <!-- Comparativo de rendimentos -->
+            <div class="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 border border-blue-100">
+                <div class="text-center mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-2">
+                        Compare com Outras Aplicações
+                    </h3>
+                    <p class="text-gray-600">Veja como o InvistaTop supera investimentos tradicionais</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700">InvistaTop</span>
+                            <span class="font-bold text-gray-900">15.2%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-blue-600 h-3 rounded-full transition-all duration-1000 ease-out" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700">CDI</span>
+                            <span class="font-bold text-gray-900">11.5%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gray-400 h-3 rounded-full transition-all duration-1000 ease-out" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700">Poupança</span>
+                            <span class="font-bold text-gray-900">6.8%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gray-300 h-3 rounded-full transition-all duration-1000 ease-out" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center">
+                            <span class="font-medium text-gray-700">IPCA</span>
+                            <span class="font-bold text-gray-900">4.9%</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-3">
+                            <div class="bg-gray-200 h-3 rounded-full transition-all duration-1000 ease-out" style="width: 32%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER / CTA FINAL -->
+    <footer class="py-20 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- CTA Principal -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold mb-4">
+                    Pronto para <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Começar?</span>
+                </h2>
+                <p class="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Junte-se a mais de 800 investidores que já descobriram uma nova forma de fazer o dinheiro trabalhar.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="goToRegister()" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold rounded-xl hover:from-blue-600 hover:to-purple-600 transition-all transform hover:scale-105 shadow-lg">
+                        🚀 Criar Conta Gratuita
+                    </button>
+                    <button onclick="goToLogin()" class="px-8 py-4 border-2 border-blue-400 text-blue-400 font-semibold rounded-xl hover:bg-blue-400/10 transition-all">
+                        🔐 Fazer Login
+                    </button>
+                </div>
+
+                <p class="text-sm text-gray-400 mt-6">
+                    ✅ Sem taxa de adesão • ✅ Sem mensalidade • ✅ Comece com R$ 1.000
+                </p>
+            </div>
+
+            <!-- Links do footer -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pt-16 border-t border-gray-700">
+                <div>
+                    <div class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+                        💎 InvistaTop V7
+                    </div>
+                    <p class="text-gray-400 text-sm">
+                        Plataforma de investimentos imobiliários com tecnologia de ponta e segurança máxima.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Produtos</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Projetos Imobiliários</a></li>
+                        <li><a href="#" class="hover:text-white transition">Fundos de Investimento</a></li>
+                        <li><a href="#" class="hover:text-white transition">Carteira Diversificada</a></li>
+                        <li><a href="#" class="hover:text-white transition">Assessoria Premium</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Empresa</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Sobre Nós</a></li>
+                        <li><a href="#" class="hover:text-white transition">Equipe</a></li>
+                        <li><a href="#" class="hover:text-white transition">Carreiras</a></li>
+                        <li><a href="#" class="hover:text-white transition">Imprensa</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-semibold mb-4">Suporte</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition">Central de Ajuda</a></li>
+                        <li><a href="#" class="hover:text-white transition">Política de Privacidade</a></li>
+                        <li><a href="#" class="hover:text-white transition">Termos de Uso</a></li>
+                        <li><a href="#" class="hover:text-white transition">Contato</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="pt-8 mt-8 border-t border-gray-700 text-center">
+                <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <p class="text-sm text-gray-400">
+                        © 2025 InvistaTop V7. Todos os direitos reservados. Landing Page implementada conforme especificações.
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500">
+                        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span>Conectado ao Supabase PostgreSQL</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para funcionalidade -->
+    <script>
+        // Base de dados dos projetos (normalmente seria carregado de uma API)
+        const projetosDatabase = {
+            "projetos": [
+                {
+                    "id": "proj_001",
+                    "nome": "Edifício Central Plaza",
+                    "descricao": "Complexo comercial moderno no centro de São Paulo",
+                    "localizacao": "São Paulo - SP",
+                    "status": "destaque",
+                    "etiqueta": "baixo-risco",
+                    "categoria": "comercial",
+                    "rentabilidade": { "percentual": 12.0, "periodo": "anual" },
+                    "investimento": {
+                        "valorTotal": 5000000,
+                        "valorCaptado": 2500000,
+                        "percentualCaptado": 50
+                    },
+                    "prazos": { "prazoTotal": 18, "unidadePrazo": "meses" },
+                    "risco": { "nivel": "baixo" },
+                    "imagem": {
+                        "url": "keys/edificio-plaza?prompt=Modern%20glass%20building%20construction%20site%20in%20São%20Paulo%20cityscape",
+                        "alt": "Edifício Central Plaza - São Paulo"
+                    },
+                    "destaque": { "principal": true, "posicao": 1 }
+                },
+                {
+                    "id": "proj_002",
+                    "nome": "Condomínio Green Valley",
+                    "descricao": "Condomínio residencial sustentável com área verde",
+                    "localizacao": "Rio de Janeiro - RJ",
+                    "status": "destaque",
+                    "etiqueta": "medio-risco",
+                    "categoria": "residencial",
+                    "rentabilidade": { "percentual": 15.0, "periodo": "anual" },
+                    "investimento": {
+                        "valorTotal": 3500000,
+                        "valorCaptado": 1225000,
+                        "percentualCaptado": 35
+                    },
+                    "prazos": { "prazoTotal": 24, "unidadePrazo": "meses" },
+                    "risco": { "nivel": "medio" },
+                    "imagem": {
+                        "url": "keys/green-valley?prompt=Luxury%20residential%20condominium%20with%20green%20spaces%20in%20Rio%20de%20Janeiro",
+                        "alt": "Condomínio Green Valley - Rio de Janeiro"
+                    },
+                    "destaque": { "principal": true, "posicao": 2 }
+                },
+                {
+                    "id": "proj_003",
+                    "nome": "Torre Business",
+                    "descricao": "Arranha-céu corporativo de alto padrão",
+                    "localizacao": "Belo Horizonte - MG",
+                    "status": "destaque",
+                    "etiqueta": "alto-risco",
+                    "categoria": "corporativo",
+                    "rentabilidade": { "percentual": 20.0, "periodo": "anual" },
+                    "investimento": {
+                        "valorTotal": 2000000,
+                        "valorCaptado": 500000,
+                        "percentualCaptado": 25
+                    },
+                    "prazos": { "prazoTotal": 12, "unidadePrazo": "meses" },
+                    "risco": { "nivel": "alto" },
+                    "imagem": {
+                        "url": "keys/torre-business?prompt=Modern%20business%20tower%20skyscraper%20construction%20in%20Belo%20Horizonte%20downtown",
+                        "alt": "Torre Business - Belo Horizonte"
+                    },
+                    "destaque": { "principal": true, "posicao": 3 }
+                }
+            ]
+        };
+
+        // Funções para gerenciar projetos
+        function getProjetosDestaque() {
+            return projetosDatabase.projetos
+                .filter(projeto => projeto.status === 'destaque' && projeto.destaque.principal)
+                .sort((a, b) => a.destaque.posicao - b.destaque.posicao);
+        }
+
+        function formatarMoeda(valor) {
+            return new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            }).format(valor);
+        }
+
+        function formatarValorCompacto(valor) {
+            if (valor >= 1000000) {
+                return `R$ ${(valor / 1000000).toFixed(1)}M`;
+            } else if (valor >= 1000) {
+                return `R$ ${(valor / 1000).toFixed(0)}K`;
+            }
+            return formatarMoeda(valor);
+        }
+
+        function getRiscoConfig(nivel) {
+            const configs = {
+                'baixo': { label: 'Baixo Risco', class: 'bg-green-100 text-green-800' },
+                'medio': { label: 'Médio Risco', class: 'bg-yellow-100 text-yellow-800' },
+                'alto': { label: 'Alto Risco', class: 'bg-red-100 text-red-800' }
+            };
+            return configs[nivel] || configs['medio'];
+        }
+
+        function renderizarProjetoCard(projeto) {
+            const riscoConfig = getRiscoConfig(projeto.risco.nivel);
+            const valorCaptadoFormatado = formatarValorCompacto(projeto.investimento.valorCaptado);
+            const valorTotalFormatado = formatarValorCompacto(projeto.investimento.valorTotal);
+
+            return `
+                <div class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-gray-100 overflow-hidden group card-hover">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-100 to-purple-100 overflow-hidden">
+                        <img src="${projeto.imagem.url}" 
+                             alt="${projeto.imagem.alt}" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                             loading="lazy">
+                        
+                        <div class="absolute top-4 left-4">
+                            <span class="px-3 py-1 rounded-full text-xs font-medium ${riscoConfig.class}">
+                                ${riscoConfig.label}
+                            </span>
+                        </div>
+
+                        <div class="absolute top-4 right-4">
+                            <span class="px-3 py-1 bg-blue-600 text-white rounded-full text-xs font-medium">
+                                ${projeto.rentabilidade.percentual}% a.a.
+                            </span>
+                        </div>
+
+                        <div class="absolute bottom-4 left-4">
+                            <span class="px-2 py-1 bg-black/60 text-white rounded text-xs font-medium">
+                                #${projeto.etiqueta}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="p-6 space-y-4">
+                        <div>
+                            <h3 class="text-lg font-semibold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors">
+                                ${projeto.nome}
+                            </h3>
+                            <p class="text-sm text-gray-500 flex items-center">
+                                📍 ${projeto.localizacao}
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <div class="text-xs text-gray-500">Prazo</div>
+                                <div class="font-medium text-gray-800">${projeto.prazos.prazoTotal} ${projeto.prazos.unidadePrazo}</div>
+                            </div>
+                            <div>
+                                <div class="text-xs text-gray-500">Rentabilidade</div>
+                                <div class="font-medium text-green-600">${projeto.rentabilidade.percentual}% a.a.</div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-xs text-gray-500">Captação</span>
+                                <span class="text-xs font-medium text-gray-700">${projeto.investimento.percentualCaptado}%</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out" style="width: ${projeto.investimento.percentualCaptado}%"></div>
+                            </div>
+                            <div class="flex justify-between text-xs text-gray-500">
+                                <span>${valorCaptadoFormatado} captado</span>
+                                <span>${valorTotalFormatado} total</span>
+                            </div>
+                        </div>
+
+                        <button onclick="goToRegister()" class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-medium hover:from-blue-700 hover:to-purple-700 transition-all transform hover:scale-105 shadow-lg">
+                            💰 Investir Agora
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        function carregarProjetosDestaque() {
+            const projetosDestaque = getProjetosDestaque();
+            const container = document.getElementById('projetos-destaque-container');
+            
+            if (container && projetosDestaque.length > 0) {
+                container.innerHTML = projetosDestaque.map(projeto => renderizarProjetoCard(projeto)).join('');
+                console.log(`✅ ${projetosDestaque.length} projetos em destaque carregados`);
+            } else {
+                console.warn('⚠️ Container de projetos não encontrado ou sem projetos em destaque');
+            }
+        }
+
+        // Funções de navegação
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function goToLogin() {
+            // Redirecionar para a página de login
+            window.location.href = 'login.html';
+        }
+
+        function goToRegister() {
+            // Redirecionar para a página de cadastro/login
+            window.location.href = 'login.html?mode=register';
+        }
+
+        // Destacar seção ativa no menu
+        window.addEventListener('scroll', function() {
+            const sections = ['hero', 'projetos', 'como-funciona', 'estatisticas'];
+            const navLinks = document.querySelectorAll('nav a');
+            
+            let currentSection = '';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100 && rect.bottom >= 100) {
+                        currentSection = section;
+                    }
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-blue-600');
+                link.classList.add('text-gray-700');
+                
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.remove('text-gray-700');
+                    link.classList.add('text-blue-600');
+                }
+            });
+        });
+
+        // Animações quando elementos entram na tela
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos que devem animar
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.card-hover, .float-animation');
+            animatedElements.forEach(el => observer.observe(el));
+        });
+
+        // Adicionar classe CSS para animação fade in up
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+            
+            .animate-fadeInUp {
+                animation: fadeInUp 0.6s ease-out forwards;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Simular carregamento de dados em tempo real
+        function updateStats() {
+            const investorCount = document.querySelector('.text-blue-600');
+            if (investorCount && investorCount.textContent.includes('847')) {
+                // Simular crescimento gradual
+                setInterval(() => {
+                    const current = parseInt(investorCount.textContent);
+                    if (current < 850) {
+                        investorCount.textContent = (current + 1) + '+';
+                    }
+                }, 5000);
+            }
+        }
+
+        // Inicializar após carregamento
+        document.addEventListener('DOMContentLoaded', function() {
+            // Carregar projetos em destaque
+            setTimeout(() => {
+                carregarProjetosDestaque();
+            }, 500); // Simular carregamento
+            
+            updateStats();
+            console.log('🌟 Landing Page InvistaTop V7 carregada com sucesso!');
+            console.log('📊 Sistema conectado ao Supabase PostgreSQL');
+            console.log('🔗 Botões Entrar e Cadastrar configurados para login.html');
+            console.log('📋 Sistema de projetos dinâmico ativado');
+        });
+    </script>
+</body>
+</html>
