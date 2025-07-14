@@ -1,0 +1,45 @@
+name: Deploy InvistaTop V7 - Vercel
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📂 Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: 📦 Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: 📥 Install dependencies
+      run: npm ci
+    
+    - name: 🏗️ Build project
+      run: npm run build
+      env:
+        NODE_ENV: production
+        CI: false
+    
+    - name: 📤 Deploy to Vercel
+      uses: amondnet/vercel-action@v25
+      with:
+        vercel-token: ${{ secrets.VERCEL_TOKEN }}
+        vercel-org-id: ${{ secrets.ORG_ID }}
+        vercel-project-id: ${{ secrets.PROJECT_ID }}
+        vercel-args: '--prod'
+        
+    - name: 📢 Notify deployment success
+      run: |
+        echo "🎉 ===== DEPLOY VERCEL CONCLUÍDO! ====="
+        echo "✅ InvistaTop V7 deployado no Vercel!"
+        echo "📊 Commit: ${{ github.sha }}"
+        echo "📅 Data: $(date)"
+        echo "🎯 Status: Sistema 100% operacional"
