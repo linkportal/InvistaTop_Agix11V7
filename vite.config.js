@@ -4,11 +4,12 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/InvistaTop/',
+  base: process.env.NODE_ENV === 'production' ? '/' : '/InvistaTop/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
+    minify: 'terser',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -16,15 +17,23 @@ export default defineConfig({
           supabase: ['@supabase/supabase-js']
         }
       }
-    }
+    },
+    target: 'esnext',
+    chunkSizeWarningLimit: 1000
   },
   server: {
     port: 3000,
-    open: true
+    host: true
   },
   preview: {
     port: 4173,
-    open: true
+    host: true
   },
-  publicDir: 'public'
+  publicDir: 'public',
+  define: {
+    'process.env': {}
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', '@supabase/supabase-js']
+  }
 })
