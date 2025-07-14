@@ -1,0 +1,37 @@
+{
+  "name": "investatop-v7",
+  "version": "7.0.0",
+  "description": "Sistema de Investimentos InvistaTop V7",
+  "main": "src/App.jsx",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "@supabase/supabase-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.0.0",
+    "tailwindcss": "^3.3.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "gh-pages": "^6.0.0"
+  },
+  "keywords": [
+    "investimentos",
+    "react",
+    "supabase",
+    "sistema-financeiro"
+  ],
+  "author": "Renato Fernandes",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/linkportal/InvistaTop.git"
+  }
+}
