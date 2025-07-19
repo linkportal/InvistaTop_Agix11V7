@@ -1,3 +1,9 @@
+aqui aquele que sumiu
+C:\Dados\OneDrive\Codigo\ww3\Reservas4\Agix\Agix11\Agix11V7.0.0
+em 14.07.25
+
+
+
 # InvistaTop V7 - Sistema Completo de Investimentos
 
 ## 🚀 Sistema de Investimentos Inspirado na AGIX Brasil
